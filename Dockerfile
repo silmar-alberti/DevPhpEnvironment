@@ -24,8 +24,9 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
 
 RUN /bin/bash /auryn/config/apacheConfig.sh
 
+WORKDIR /auryn/
 
-CMD service apache2 restart
+CMD service apache2 restart && /bin/bash
 #
 #RUN yes | apt-get -y install xdebug \
 #    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \

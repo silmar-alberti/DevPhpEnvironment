@@ -1,10 +1,12 @@
 php:
+  image: blog
   build: ./
   ports:
    - "80:80"
    - "443:443"
-  volumes:
-   - ./www/:/var/www/
-   - ./logs/:/var/log/apache2/
+#   not working
+#  volumes:
+#   - /var/www/:/auryn/www3/
+#   - logs/:/var/log/apache2/
   environment:
     XDEBUG_CONFIG: remote_host=10.254.254.254
