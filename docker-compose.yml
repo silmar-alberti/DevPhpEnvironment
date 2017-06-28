@@ -4,7 +4,7 @@ php:
    - "80:80"
    - "443:443"
   volumes:
-   - ./src/:/var/www/
+   - ./www/:/var/www/
    - ./logs/:/var/log/apache2/
   environment:
     XDEBUG_CONFIG: remote_host=10.254.254.254
