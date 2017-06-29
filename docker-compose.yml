@@ -1,12 +1,12 @@
-php:
-  image: blog
+#its work only docker-compose build
+blog:
   build: ./
   ports:
    - "80:80"
    - "443:443"
-#   not working
-#  volumes:
-#   - /var/www/:/auryn/www3/
-#   - logs/:/var/log/apache2/
+#   - "9000:9000"
+  volumes:
+   - ./www/:/var/www
+   - ./logs/:/var/log/apache2/
   environment:
     XDEBUG_CONFIG: remote_host=10.254.254.254
