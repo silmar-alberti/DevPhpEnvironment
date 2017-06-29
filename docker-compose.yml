@@ -1,10 +1,8 @@
-#its work only docker-compose build
 blog:
   build: ./
   ports:
    - "80:80"
    - "443:443"
-#   - "9000:9000"
   volumes:
    - ./www/:/var/www
    - ./logs/:/var/log/apache2/

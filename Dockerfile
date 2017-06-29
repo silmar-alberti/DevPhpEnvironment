@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 COPY apacheConfig.sh /auryn/config/apacheConfig.sh
+COPY xdebugConfig.sh /auryn/config/xdebugConfig.sh
 
 RUN apt-get update && apt-get -y upgrade
 
@@ -19,17 +20,12 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             git \
             php-zip \
             php-bcmath \
-            fail2ban
+            fail2ban \
+            php-xdebug
 
 RUN /bin/bash /auryn/config/apacheConfig.sh
+RUN /bin/bash /auryn/config/xdebugConfig.sh
 
-#RUN apt-get -y install xdebug \
-#    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
-#    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
-#    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
-#    && echo "xdebug.idekey=\"netbeans-xdebug\"" >> /usr/local/etc/php/conf.d/xdebug.ini \
-#    && echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/xdebug.ini \
-#	&& echo "xdebug.max_nesting_level=200" >> /usr/local/etc/php/conf.d/xdebug.ini
 
-CMD service apache2 restart && /bin/bash
+CMD service apache2 restart && /bin/bash && sleep infinity
 #
