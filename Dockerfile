@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
-COPY apacheConfig.sh /auryn/config/apacheConfig.sh
-COPY xdebugConfig.sh /auryn/config/xdebugConfig.sh
+COPY *Config.sh /auryn/config/
 
 RUN apt-get update && apt-get -y upgrade
 
@@ -26,6 +25,7 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
 RUN /bin/bash /auryn/config/apacheConfig.sh
 RUN /bin/bash /auryn/config/xdebugConfig.sh
 
-
-CMD service apache2 restart && /bin/bash && sleep infinity
-#
+CMD /bin/bash /auryn/config/apacheAppsConfig.sh \
+    && service apache2 restart \
+    && /bin/bash \
+    && sleep infinity

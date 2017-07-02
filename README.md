@@ -13,3 +13,4 @@ agora o container já esta em execução
 
 - pasta www/ do projeto sera compartilhada com a /var/www
 - pasta logs/ é a pasta de logs do apache
+- o arquivo de configuração do apache deve estar em www/* /*.apache.conf
