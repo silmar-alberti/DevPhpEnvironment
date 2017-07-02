@@ -25,7 +25,10 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
 RUN /bin/bash /auryn/config/apacheConfig.sh
 RUN /bin/bash /auryn/config/xdebugConfig.sh
 
+RUN apt-get -y install composer phpunit
+
 CMD /bin/bash /auryn/config/apacheAppsConfig.sh \
     && service apache2 restart \
+    && chmod 777 -R /var/www \
     && /bin/bash \
     && sleep infinity
