@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
 SYSTEMS_ENABLEDS=/etc/apache2/sites-enabled/*
-SYSTEMS_AVAILABLES=/etc/apache2/sites-available/*
+SYSTEMS_AVAILABLES=/etc/apache2/sites-available/\D*
 CONFIG_FILES=/var/www/*/*.apache.conf
 
 for config_file in $SYSTEMS_ENABLEDS
 do
     systemname="${config_file##*/}"
-    echo "desativando " $systemname
-    a2dissite $systemname
-#    echo $systemname
+#    if [ "$systemname"!='000-default.conf' ]; then
+        echo "desativando " $systemname
+        a2dissite $systemname
+#    if
 done
 
 #remove sites-available
