@@ -10,6 +10,12 @@ sed -i "s/.*post_max_size.*=.*/post_max_size = 200M/" $phpIniApache
 sed -i "s/.*upload_max_filesize.*=.*/upload_max_filesize = 200M/" $phpIniApache
 sed -i "s/.*date.timezone.*=.*/date.timezone = America\/Sao_Paulo/" $phpIniApache
 
+sed -i "s/.*realpath_cache_size.*=.*/realpath_cache_size = 4096k/" $phpIniCli
+sed -i "s/.*memory_limit.*=.*/memory_limit = 512M/" $phpIniCli
+sed -i "s/.*post_max_size.*=.*/post_max_size = 200M/" $phpIniCli
+sed -i "s/.*upload_max_filesize.*=.*/upload_max_filesize = 200M/" $phpIniCli
+sed -i "s/.*date.timezone.*=.*/date.timezone = America\/Sao_Paulo/" $phpIniCli
+
 sed -i "s/^PermitRootLogin.*/PermitRootLogin no/" $sshdConfig
 sed -i "s/^PasswordAuthentication.*/PasswordAuthentication no/" $sshdConfig
 
