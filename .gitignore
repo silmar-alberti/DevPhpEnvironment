@@ -1,7 +1,9 @@
 #ignorar
+.DS_Store
 .idea
 www/*
 logs/*
 
 #nao ignorar
-!somefolder/.gitkeep 
+!www/.gitkeep 
+!logs/.gitkeep
