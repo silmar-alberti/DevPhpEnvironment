@@ -1,3 +1,7 @@
+#ignorar
 .idea
 www/*
 logs/*
+
+#nao ignorar
+!somefolder/.gitkeep 
