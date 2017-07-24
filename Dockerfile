@@ -23,7 +23,7 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             php-xdebug
 
 RUN apt-get -y install wget
-RUN apt-get -y install composer phpunit
+RUN apt-get -y install composer
 
 RUN /bin/bash /auryn/util/updatePhpunit.sh
 RUN /bin/bash /auryn/config/apacheConfig.sh

@@ -6,5 +6,6 @@ blog:
   volumes:
    - ./logs/:/var/log/apache2/
    - ./www/:/var/www/
+   - ./auryn/defaultApacheConfig:/var/www/defaultApacheConfig
   environment:
     XDEBUG_CONFIG: remote_host=172.17.0.1
