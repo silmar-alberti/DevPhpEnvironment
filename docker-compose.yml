@@ -5,5 +5,6 @@ blog:
    - "443:443"
   volumes:
    - ./logs/:/var/log/apache2/
+   - ./www/:/var/www/
   environment:
-    XDEBUG_CONFIG: remote_host=10.254.254.254
+    XDEBUG_CONFIG: remote_host=172.17.0.1
