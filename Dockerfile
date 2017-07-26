@@ -20,7 +20,8 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             php-zip \
             php-bcmath \
             fail2ban \
-            php-xdebug
+            php-xdebug \
+            iputils-ping
 
 RUN apt-get -y install wget
 RUN apt-get -y install composer
@@ -28,7 +29,6 @@ RUN apt-get -y install composer
 RUN /bin/bash /auryn/util/updatePhpunit.sh
 RUN /bin/bash /auryn/config/apacheConfig.sh
 RUN /bin/bash /auryn/config/xdebugConfig.sh
-
 
 
 CMD /bin/bash /auryn/config/apacheAppsConfig.sh \

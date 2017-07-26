@@ -2,7 +2,8 @@
 
 SYSTEMS_ENABLEDS=/etc/apache2/sites-enabled/*
 SYSTEMS_AVAILABLES=/etc/apache2/sites-available/*
-CONFIG_FILES=/var/www/*/*.apache.conf
+CONFIG_FILES=/var/www/*/dockerConfig/*.apache.conf
+INIT_FILES=/var/www/*dockerConfig/init.sh
 
 for config_file in $SYSTEMS_ENABLEDS
 do
@@ -28,4 +29,11 @@ for config_file in $CONFIG_FILES
 do
     systemname="${config_file##*/}"
     a2ensite $systemname
+done
+
+for init_file in $INIT_FILES
+do
+    echo "executanto: "$init_file
+    chmod +x $init_file
+    /bin/bash $init_file
 done
