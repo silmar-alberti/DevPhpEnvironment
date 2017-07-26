@@ -1,7 +1,5 @@
 FROM ubuntu:16.04
 
-COPY auryn/ /auryn/
-
 RUN apt-get update && apt-get -y upgrade
 
 RUN apt-get -y install --no-install-recommends apt-utils apache2 \

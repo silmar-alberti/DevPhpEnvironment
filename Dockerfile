@@ -1,5 +1,7 @@
 FROM ubuntubase_ubuntu_base
 
+COPY auryn/ /auryn/
+
 RUN /bin/bash /auryn/util/updatePhpunit.sh
 RUN /bin/bash /auryn/config/apacheConfig.sh
 RUN /bin/bash /auryn/config/xdebugConfig.sh

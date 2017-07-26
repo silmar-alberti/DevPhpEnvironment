@@ -1,8 +1,2 @@
 ubuntu_base:
   build: ./
-  ports:
-   - "80:80"
-   - "443:443"
-   - "4444:4444"
-  volumes:
-    - ./auryn/defaultApacheConfig:/var/www/defaultApacheConfig
