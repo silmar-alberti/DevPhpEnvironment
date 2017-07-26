@@ -3,7 +3,7 @@
 SYSTEMS_ENABLEDS=/etc/apache2/sites-enabled/*
 SYSTEMS_AVAILABLES=/etc/apache2/sites-available/*
 CONFIG_FILES=/var/www/*/dockerConfig/*.apache.conf
-INIT_FILES=/var/www/*dockerConfig/init.sh
+INIT_FILES=/var/www/*/dockerConfig/init.sh
 
 for config_file in $SYSTEMS_ENABLEDS
 do

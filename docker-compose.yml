@@ -1,13 +1,9 @@
 blog:
   build: ./
-  ports:
-   - "80:80"
-   - "443:443"
-   - "4444:4444"
   volumes:
    - ./logs/:/var/log/apache2/
    - ./www/:/var/www/
-   - ./auryn/defaultApacheConfig:/var/www/defaultApacheConfig
+#   - ./auryn/defaultApacheConfig:/var/www/defaultApacheConfig
    - ./dns/hosts:/etc/hosts
    - ./dns/dnsmasq.conf:/etc/dnsmasq.conf
   environment:
