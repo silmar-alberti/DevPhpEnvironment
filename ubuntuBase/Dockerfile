@@ -11,6 +11,7 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             php-curl \
             php-imap \
             php-gd \
+            php-mbstring \
             php-zip \
             php-bcmath \
             php-xml \
