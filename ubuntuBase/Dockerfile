@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+RUN useradd -ms /bin/bash sshUser
+RUN echo 'sshUser:pass' | chpasswd
 RUN apt-get update && apt-get -y upgrade
 
 #install php packages
@@ -12,18 +14,15 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             php-imap \
             php-gd \
             php-mbstring \
+            vim \
+            openssh-server \
+            libapache2-mod-php \
+            php-xml \
+            git \
             php-zip \
             php-bcmath \
-            php-xml \
-            php-xdebug \
-            libapache2-mod-php
-
-##install tools
-RUN apt-get -y install --no-install-recommends apt-utils vim \
-            openssh-server \
-            git \
             fail2ban \
-            iputils-ping
+            php-xdebug
 
 ##install node
 #RUN apt-get install -y curl && \
