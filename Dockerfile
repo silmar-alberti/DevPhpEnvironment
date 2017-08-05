@@ -6,7 +6,20 @@ RUN /bin/bash /auryn/util/updatePhpunit.sh
 RUN /bin/bash /auryn/config/apacheConfig.sh
 RUN /bin/bash /auryn/config/xdebugConfig.sh
 
-CMD /bin/bash /auryn/config/apacheAppsConfig.sh \
+RUN chmod 777 -R /auryn/config/apacheAppsConfig.sh
+
+env APACHE_RUN_USER    www-data
+env APACHE_RUN_GROUP   www-data
+env APACHE_PID_FILE    /var/run/apache2.pid
+env APACHE_RUN_DIR     /var/run/apache2
+env APACHE_LOCK_DIR    /var/lock/apache2
+env APACHE_LOG_DIR     /var/log/apache2
+
+CMD chmod 777 -R /var/www \
+	&& /auryn/config/apacheAppsConfig.sh \
+	&& service apache2 stop \
+	&& apache2 -D FOREGROUND -d /etc/apache2/ \
+    && service ssh start \
     && chmod 777 -R /var/www \
-    && service apache2 restart \
     && sleep infinity
+
