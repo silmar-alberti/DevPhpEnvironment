@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 CLIPATH=/etc/php/7.0/cli/conf.d/xdebug.ini
-REMOTE_HOST=172.17.0.1
+REMOTE_HOST=10.254.254.254
 #echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > $CLIPATH
 echo "xdebug.remote_enable=on" >> $CLIPATH
 #echo "xdebug.remote_autostart=off" >> $CLIPATH

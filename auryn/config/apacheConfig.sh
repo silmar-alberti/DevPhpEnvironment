@@ -19,7 +19,7 @@ sed -i "s/.*date.timezone.*=.*/date.timezone = America\/Sao_Paulo/" $phpIniCli
 sed -i "s/^PermitRootLogin.*/PermitRootLogin no/" $sshdConfig
 sed -i "s/^PasswordAuthentication.*/PasswordAuthentication no/" $sshdConfig
 
-timedatectl set-timezone America/Sao_Paulo
+#timedatectl set-timezone America/Sao_Paulo
 
 a2enmod rewrite
 a2enmod headers
