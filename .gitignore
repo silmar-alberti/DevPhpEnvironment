@@ -8,3 +8,4 @@ logs/*
 !www/default*
 !www/.gitkeep
 !logs/.gitkeep
+!www/.gitKeep
