@@ -15,9 +15,17 @@
 - rode o comando: sudo docker-compose build
 - rode o comando: sudo docker-compose up
 agora o container já esta em execução
-
 - ctrl-c para encerar a execução
 - sudo docker-compose start .para executar o container
+
+###Passos Adicionais para Mac
+- sincronize os arquivos do repositorio que quer executar
+- reinicie o container
+
+
+Usuario para ssh: sshUser
+Senha para ssh: pass
+Porta para ssh: 2200
 
 
 #### oque irá acontercer? 
