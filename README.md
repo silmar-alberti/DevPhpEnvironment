@@ -18,7 +18,7 @@ agora o container já esta em execução
 - ctrl-c para encerar a execução
 - sudo docker-compose start .para executar o container
 
-###Passos Adicionais para Mac
+### Passos Adicionais para Mac
 - sincronize os arquivos do repositorio que quer executar
 - reinicie o container
 
