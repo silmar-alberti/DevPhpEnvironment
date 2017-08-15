@@ -10,6 +10,7 @@ services:
      - ./logs/:/var/log/apache2/
      - ./auryn/defaultApacheConfig:/var/www/defaultApacheConfig
      - ./www:/var/www
+     - ./renderedImages/:/renderedImages/
     environment:
       XDEBUG_CONFIG: remote_host=172.17.0.1
   phpmyadmin:

@@ -32,16 +32,18 @@ get_config_has_APC () {
 
 if [ ! -f "/etc/php/7.0/mods-available/apcu.ini" ]; then
 
+    echo "instalando apcu.ini"
+
 	if [ ! -d "apcu-bc" ]; then
 		git clone https://github.com/krakjoe/apcu-bc.git
 	fi
 
 	cd apcu-bc
-	apt install php7.0-dev
 	phpize
 	./configure
 	make
 	make install
+
 else
 	echo "APCU estava instalado..."
 fi

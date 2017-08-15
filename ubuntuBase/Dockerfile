@@ -2,10 +2,12 @@ FROM ubuntu:16.04
 
 RUN useradd -ms /bin/bash sshUser
 RUN echo 'sshUser:pass' | chpasswd
-RUN apt-get update && apt-get -y upgrade
 
-#install php packages
-RUN apt-get -y install --no-install-recommends apt-utils apache2 \
+
+
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    apt-get -y install --no-install-recommends apt-utils apache2 \
             php \
             php-imagick \
             php-mysql \
@@ -22,16 +24,16 @@ RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             php-zip \
             php-bcmath \
             fail2ban \
-            php-xdebug
+            php-xdebug \
+            php7.0-dev \
+            dnsmasq
 
-##install node
-#RUN apt-get install -y curl && \
-#    curl -sL https://deb.nodesource.com/setup_8.x && \
-#    apt-get -y update && \
-#    apt-get -y upgrade && \
-#    apt-get install -y nodejs \
-#            build-essential
-
+#RUN apt-get update -y && \
+#            apt-get install -y curl && \
+#            curl -sL https://deb.nodesource.com/setup_8.x && \
+#            apt-get update && \
+#            apt-get -y upgrade && \
+#            apt-get install -y nodejs
 
 RUN apt-get -y install wget
 RUN apt-get -y install composer
