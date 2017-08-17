@@ -28,12 +28,13 @@ RUN apt-get -y update && \
             php7.0-dev \
             dnsmasq
 
-#RUN apt-get update -y && \
-#            apt-get install -y curl && \
-#            curl -sL https://deb.nodesource.com/setup_8.x && \
-#            apt-get update && \
-#            apt-get -y upgrade && \
-#            apt-get install -y nodejs
+RUN apt-get update -y && \
+            apt-get install -y curl && \
+            curl -sL https://deb.nodesource.com/setup_8.x | bash && \
+            apt-get update && \
+            apt-get -y upgrade && \
+            apt-get install -y nodejs \
+            build-essential
 
 RUN apt-get -y install wget
 RUN apt-get -y install composer
