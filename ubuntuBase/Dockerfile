@@ -26,9 +26,7 @@ RUN apt-get -y update && \
             fail2ban \
             php-xdebug \
             php7.0-dev \
-            dnsmasq
-
-RUN apt-get update -y && \
+            dnsmasq && \
             apt-get install -y curl && \
             curl -sL https://deb.nodesource.com/setup_8.x | bash && \
             apt-get update && \

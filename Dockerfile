@@ -1,4 +1,4 @@
-FROM ubuntubase_ubuntu_base
+FROM ubuntubase_ubuntu_base:latest
 
 COPY auryn/ /auryn/
 
