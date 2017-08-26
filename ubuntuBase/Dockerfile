@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 
 RUN useradd -ms /bin/bash sshUser
 RUN echo 'sshUser:pass' | chpasswd
+RUN echo Port 22 >> /etc/ssh/ssh_config
 
 
 
