@@ -17,9 +17,8 @@ env APACHE_LOG_DIR     /var/log/apache2
 
 CMD chmod 777 -R /var/www \
 	&& /auryn/config/apacheAppsConfig.sh \
-	&& service apache2 stop \
     	&& service ssh start \
     	&& chmod 777 -R /var/www \
 	#precisa sempre ser o ultimo comando
-	&& apache2 -D FOREGROUND -d /etc/apache2/
+	&& /bin/bash /auryn/util/apache2-foreground.sh
 
