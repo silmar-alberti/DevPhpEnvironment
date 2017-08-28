@@ -60,3 +60,12 @@ if [ $apcIniCli -eq 0 ]; then
 	echo "Adicionando ACPU no arquivo $phpIniCli"
 	printf $apcText >> $phpIniCli
 fi
+
+echo "configurando compactacao json"
+
+printf "<IfModule mod_deflate.c>
+            <IfModule mod_filter.c>
+                    # these are known to be safe with MSIE 6
+                    AddOutputFilterByType DEFLATE application/json
+             </IfModule>
+        </IfModule>" >> /etc/apache2/mods-enabled/deflate.conf
