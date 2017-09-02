@@ -2,13 +2,15 @@ FROM ubuntu:16.04
 
 RUN useradd -ms /bin/bash sshUser
 RUN echo 'sshUser:pass' | chpasswd
-RUN echo Port 22 >> /etc/ssh/ssh_config
+#RUN echo Port 22 >> /etc/ssh/ssh_config
 
+RUN apt-get -y update --no-install-recommends && \
+    apt-get -y upgrade --no-install-recommends
 
+RUN apt-get install -y curl --no-install-recommends
+RUN curl -sl https://deb.nodesource.com/setup_8.x | bash
 
-RUN apt-get -y update && \
-    apt-get -y upgrade && \
-    apt-get -y install --no-install-recommends apt-utils apache2 \
+RUN apt-get -y install --no-install-recommends apt-utils apache2 \
             php \
             php-imagick \
             php-mysql \
@@ -27,12 +29,10 @@ RUN apt-get -y update && \
             fail2ban \
             php-xdebug \
             php7.0-dev \
-            dnsmasq && \
-            apt-get install -y curl && \
-            curl -sL https://deb.nodesource.com/setup_8.x | bash && \
-            apt-get update && \
-            apt-get -y upgrade && \
-            apt-get install -y nodejs \
+            php-pear \
+            unzip \
+            dnsmasq \
+            nodejs \
             build-essential
 
 RUN apt-get -y install wget
