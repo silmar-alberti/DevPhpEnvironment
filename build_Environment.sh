@@ -7,3 +7,5 @@ docker-compose build
 cd ../
 docker-compose build
 docker-compose create
+
+echo "----- execute docker-compose start    -------  para iniciar os containers"

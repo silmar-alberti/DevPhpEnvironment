@@ -2,3 +2,6 @@
 .idea
 *.iml
 www/*
+logs
+renderedImages
+ssh
