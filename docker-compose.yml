@@ -16,7 +16,7 @@ services:
      - ./www:/var/www
      - ./renderedImages/:/renderedImages/
     environment:
-      XDEBUG_CONFIG: remote_host=172.17.0.1
+      XDEBUG_CONFIG: remote_host=${IP_HOST}
   phpmyadmin:
       image: phpmyadmin/phpmyadmin
       container_name: phpmyadmin
