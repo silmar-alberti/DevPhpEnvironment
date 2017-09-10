@@ -1,7 +1,11 @@
 version: '2'
 services:
   blog:
-    build: ./
+    build:
+        context: .
+        dockerfile: Dockerfile
+        args:
+          - REMOTE_HOST="${IP_HOST}"
     ports:
        - "80:80"
        - "443:443"
