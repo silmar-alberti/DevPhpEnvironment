@@ -1,22 +1,42 @@
 # DOCKER!!! 
 - clone o repositorio
-- crie a pasta www
 - dentro da pasta www adicione a pasta do sitema que você utiliza(blog, s3_miniature, ...)
 - adicione o arquivo de configuração do apache na pasta www/<pasta_do_sistema>/dockerConfig/<nome_da_configuração>.apache.conf
-- crie um alias para um ip estatico (para alguns linux):
+- dentro da pasta dockerConfig pode-se incluir um arquivo chamado init.sh que será executado no boot da maquina
 
-`ifconfig eth0:0 10.254.254.254 up`
-
+###  Comunicação com o Host
+   para comunicar a maquina com o docker pode ser criado um alias 
+   ou então identificar qual o endereço da rede em que o docker está 
+   conectado em distribuições Linux geralemnte esta interface de rede é 
+   chamada de "docker0"
+   
+   ### Criando alias (*opcional)
+    
+    `ifconfig eth0:0 10.254.254.254 up`
+    
 - crie um alias para um ip estatico (para mac):
+    
+    `sudo ifconfig lo0 alias 10.254.254.254`
 
-`sudo ifconfig lo0 alias 10.254.254.254`
 
+## Criar Imagem
+- com permissão sudo rode o seguinte script
+        
+     `./build_Environment,sh --interface docker0`    
+<br>ou <br><br>
+    `./build_Environment,sh --ip 10.254.254.254`
+    
+    estas opções são utilizadas para configurar o XDEBUG para o ip do host
+    e só são nescessárias em sua primeira build
+        
+        
+### iniciar o container
+    
+       `sudo docker-compose start`
 
-- rode o comando: sudo docker-compose build
-- rode o comando: sudo docker-compose up
-agora o container já esta em execução
-- ctrl-c para encerar a execução
-- sudo docker-compose start .para executar o container
+### iniciar terminal no container em execução
+        `sudo ./bash.sh`
+
 
 ### Passos Adicionais para Mac
 - sincronize os arquivos do repositorio que quer executar
