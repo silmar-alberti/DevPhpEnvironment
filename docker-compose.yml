@@ -16,8 +16,10 @@ services:
      - ./auryn/defaultApacheConfig:/var/www/defaultApacheConfig
      - ./www:/var/www
      - ./renderedImages/:/renderedImages/
+    working_dir: /var/www
     environment:
-      XDEBUG_CONFIG: remote_host=${IP_HOST}
+      XDEBUG_CONFIG: idekey=netbeans-xdebug remote_host=${IP_HOST} remote_port=9000 profiler_enable=1 xdebug.remote_connect_back=on
+      PHP_IDE_CONFIG: serverName=fotogea.photobookfinal.com
   phpmyadmin:
       image: phpmyadmin/phpmyadmin
       container_name: phpmyadmin
