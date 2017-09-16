@@ -3,6 +3,7 @@
 .idea
 www/*
 logs/*
+.env
 
 #nao ignorar
 !www/default*
